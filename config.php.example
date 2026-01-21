@@ -1,0 +1,73 @@
+<?php
+/**
+ * Production Monitor Portal Configuration
+ * Bu dosyayı config.php olarak kopyalayın ve değerleri doldurun
+ * Güvenlik: config.php dosyası .gitignore'da olduğu için GitHub'a yüklenmez
+ */
+
+// Zabbix ve Grafana API Ayarları
+define('ZABBIX_URL', 'http://zabbix-server/zabbix/api_jsonrpc.php');
+define('ZABBIX_USER', 'monitor'); // Zabbix kullanıcı adı
+define('ZABBIX_PASS', ''); // Zabbix şifresi
+
+// Grafana Ayarları
+if (!defined('GRAFANA_INTERNAL_URL')) {
+    $currentDomain = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'monitor.sirket.com';
+    $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || 
+               (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
+    $protocol = $isHttps ? 'https' : 'http';
+    
+    define('GRAFANA_INTERNAL_URL', 'http://localhost:3000'); // Internal URL (API için)
+    define('GRAFANA_PUBLIC_URL', 'http://localhost:3000'); // Public URL
+    define('GRAFANA_API_KEY', ''); // Grafana API Key (Settings > API Keys > Service Account)
+    define('GRAFANA_ORG_ID', 1); // Grafana Organization ID
+}
+
+// MySQL Veritabanı Ayarları
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'monitor');
+define('DB_USER', 'monitor');
+define('DB_PASS', ''); // Production'da environment variable kullanın
+
+// Session Ayarları
+define('SESSION_LIFETIME', 3600); // 1 saat
+define('SESSION_NAME', 'MONITOR_SESSION');
+$isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || 
+           (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https');
+define('SESSION_COOKIE_SECURE', $isHttps);
+define('SESSION_COOKIE_HTTPONLY', true);
+define('SESSION_COOKIE_SAMESITE', 'Strict');
+
+// Güvenlik Ayarları
+define('CSRF_TOKEN_NAME', 'csrf_token');
+define('MAX_LOGIN_ATTEMPTS', 5);
+define('LOGIN_LOCKOUT_TIME', 900); // 15 dakika
+
+// Portal Ayarları
+define('PORTAL_DOMAIN', 'monitor.sirket.com');
+define('PORTAL_URL', 'https://monitor.sirket.com');
+
+// Zaman dilimi
+date_default_timezone_set('Europe/Istanbul');
+
+// Production/Development Modu
+define('ENVIRONMENT', 'production'); // 'development' veya 'production'
+
+// Hata raporlama
+if (ENVIRONMENT === 'production') {
+    error_reporting(0);
+    ini_set('display_errors', 0);
+    ini_set('log_errors', 1);
+    ini_set('error_log', __DIR__ . '/logs/php_errors.log');
+} else {
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+}
+
+// Güvenlik Headers
+if (!headers_sent()) {
+    header('X-Content-Type-Options: nosniff');
+    header('X-Frame-Options: SAMEORIGIN');
+    header('X-XSS-Protection: 1; mode=block');
+    header('Referrer-Policy: strict-origin-when-cross-origin');
+}

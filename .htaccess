@@ -1,0 +1,16 @@
+# Apache .htaccess dosyası
+RewriteEngine On
+
+# PHP 8.3 için
+AddHandler application/x-httpd-php83 .php
+
+# Güvenlik ayarları
+<FilesMatch "\.(sql|db)$">
+    Deny from all
+</FilesMatch>
+
+# Index dosyası
+DirectoryIndex index.php
+
+# Hata sayfaları
+ErrorDocument 404 /index.php

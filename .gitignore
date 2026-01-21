@@ -1,0 +1,37 @@
+# Hassas konfigürasyon dosyaları
+config.php
+
+# Log dosyaları
+logs/
+*.log
+
+# Geçici dosyalar
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE dosyaları
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# PHP
+vendor/
+composer.lock
+
+# Veritabanı dökümleri (hassas veri içerebilir)
+*.sql.bak
+*.sql.gz
+backup/
+
+# Environment dosyaları
+.env
+.env.local
