@@ -422,9 +422,8 @@ Bu proje production kullanımı için hazırlanmıştır. Güvenlik ve performan
 
 
 ## 🔗 Ekran Görüntüleri
-
+<img width="929" height="632" alt="login" src="https://github.com/user-attachments/assets/037f9fe7-3a04-4ab5-96d8-004b53310f44" />
 <img width="1739" height="834" alt="musteri-dashboard" src="https://github.com/user-attachments/assets/afeb93a4-3c9f-4219-a8bb-c7b37f3ce002" /> 
 <img width="1437" height="866" alt="admin-panel-1" src="https://github.com/user-attachments/assets/5bcbc061-5ce6-4cf0-baf8-c59179d460d5" />
-<img width="929" height="632" alt="login" src="https://github.com/user-attachments/assets/037f9fe7-3a04-4ab5-96d8-004b53310f44" />
 <img width="928" height="548" alt="admin-panel2" src="https://github.com/user-attachments/assets/5a3f4a86-3960-408d-8e79-ccea93a2d94a" />
 
