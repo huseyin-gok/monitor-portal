@@ -108,7 +108,7 @@ php -m | grep -E "(pdo_mysql|curl|json|session)"
 ### 1. Projeyi İndirin
 
 ```bash
-git clone https://github.com/kullanici/monitor-portal.git
+git clone https://github.com/huseyin-gok/monitor-portal.git
 cd monitor-portal
 ```
 
