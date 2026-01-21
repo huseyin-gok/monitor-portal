@@ -1,7 +1,14 @@
 # Monitor Portal - Müşteri İzleme Sistemi
 
-Production-ready, güvenli müşteri izleme portalı. Her müşteri sadece kendine ait Grafana dashboard'larını görür ve yönetir.
+Hobi ve demo amaçlı geliştirilmiş bu projede, Zabbix’ten alınan metrikler Grafana üzerinde görselleştirilmekte ve
+müşterilere özel bir izleme portalı üzerinden sunulmaktadır.
 
+Bu sistemde Grafana dış dünyaya **kontrollü şekilde** açılır ve
+her müşteri **yalnızca kendisine ait** Grafana dashboard’larını görüntüler ve yönetir.
+
+⚠️ **Bu proje bir demo referans çalışmasıdır.**
+Production ortamında kullanmadan önce gerekli tüm güvenlik kontrolleri yapılmalıdır.
+Sistemin kullanımından doğabilecek riskler kullanıcı sorumluluğundadır.
 ## 📋 İçindekiler
 
 - [Özellikler](#-özellikler)
@@ -405,8 +412,10 @@ Katkılarınızı bekliyoruz! Lütfen:
 
 ## 📝 Lisans
 
-Bu proje production kullanımı için hazırlanmıştır. Güvenlik ve performans için düzenli güncellemeler yapın.
+Bu proje **demo ve referans amaçlı** geliştirilmiştir.
 
+Production ortamında kullanım, dağıtım ve genişletme senaryolarında
+güvenlik, performans ve mevzuat gereklilikleri kullanıcı sorumluluğundadır.
 
 ## 🔗 İlgili Dokümantasyon
 
